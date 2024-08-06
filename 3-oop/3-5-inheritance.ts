@@ -22,25 +22,25 @@
 
     fillCoffeeBeans(beans: number) {
       if (beans < 0) {
-        throw new Error('value for beans should be greater than 0');
+        throw new Error("value for beans should be greater than 0");
       }
       this.coffeeBeans += beans;
     }
 
     clean() {
-      console.log('cleaning the machine...🧼');
+      console.log("cleaning the machine...🧼");
     }
 
     private grindBeans(shots: number) {
       console.log(`grinding beans for ${shots}`);
       if (this.coffeeBeans < shots * CoffeeMachine.BEANS_GRAMM_PER_SHOT) {
-        throw new Error('Not enough coffee beans!');
+        throw new Error("Not enough coffee beans!");
       }
       this.coffeeBeans -= shots * CoffeeMachine.BEANS_GRAMM_PER_SHOT;
     }
 
     private preheat(): void {
-      console.log('heating up... 🔥');
+      console.log("heating up... 🔥");
     }
 
     private extract(shots: number): CoffeeCup {
@@ -58,12 +58,13 @@
     }
   }
 
+  // 인터페이스를 구현할 때는 implements(임플리멘츠), 다른 class를 상속할 때는 extends(익스텐즈)를 써줘야 해요.
   class CaffeLatteMachine extends CoffeeMachine {
     constructor(beans: number, public readonly serialNumber: string) {
       super(beans);
     }
     private steamMilk(): void {
-      console.log('Steaming some milk... 🥛');
+      console.log("Steaming some milk... 🥛");
     }
     makeCoffee(shots: number): CoffeeCup {
       const coffee = super.makeCoffee(shots);
@@ -76,7 +77,7 @@
   }
 
   const machine = new CoffeeMachine(23);
-  const latteMachine = new CaffeLatteMachine(23, 'SSSS');
+  const latteMachine = new CaffeLatteMachine(23, "SSSS");
   const coffee = latteMachine.makeCoffee(1);
   console.log(coffee);
   console.log(latteMachine.serialNumber);

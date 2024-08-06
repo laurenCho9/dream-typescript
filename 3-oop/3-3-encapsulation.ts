@@ -21,14 +21,14 @@
 
     fillCoffeeBeans(beans: number) {
       if (beans < 0) {
-        throw new Error('value for beans should be greater than 0');
+        throw new Error("value for beans should be greater than 0");
       }
       this.coffeeBeans += beans;
     }
 
     makeCoffee(shots: number): CoffeeCup {
       if (this.coffeeBeans < shots * CoffeeMaker.BEANS_GRAMM_PER_SHOT) {
-        throw new Error('Not enough coffee beans!');
+        throw new Error("Not enough coffee beans!");
       }
       this.coffeeBeans -= shots * CoffeeMaker.BEANS_GRAMM_PER_SHOT;
       return {
@@ -54,9 +54,9 @@
       }
       this.internalAge = num;
     }
-    constructor(private firstName: string, public lastName: string) {}
+    constructor(private firstName: string, public lastName: string) {} // private - 생성자의 접근 제어자
   }
-  const user = new User('Steve', 'Jobs');
+  const user = new User("Steve", "Jobs");
   user.age = 6;
   console.log(user.fullName);
 }
