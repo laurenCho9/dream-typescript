@@ -8,7 +8,7 @@
     y: number;
   }
 
-  // object ★
+  // object ★ - type alias, interface 모두 가능
   const obj1: PositionType = {
     x: 1,
     y: 1,
@@ -19,7 +19,7 @@
     z: 1,
   };
 
-  // class ★
+  // class ★ - type alias, interface 모두 가능
   class Pos1 implements PositionType {
     x: number;
     y: number;
@@ -48,8 +48,8 @@
     name: string;
     age: number;
   };
-  type Name = Person['name']; // string
+  type Name = Person["name"]; // string
 
   type NumberType = number;
-  type Direction = 'left' | 'right';
+  type Direction = "left" | "right";
 }
